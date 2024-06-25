@@ -61,18 +61,26 @@
                             <td>{{ $jogo->nota . ' / 10' }}</td>
                             <td>{{ $jogo->descricao }}</td>
                             <td>
-                                <a href="{{ route('jogo.cadastrar', ['jogo' => $jogo->id]) }}"
-                                    class="btn btn-info btn-sm me-1">Visualizar</a>
-                                <a href="{{ route('jogo.editar', ['jogo' => $jogo->id]) }}"
-                                    class="btn btn-warning btn-sm me-1">Editar</a>
-                                {{-- <form id="formExcluir{{ $jogo->id }}"
-                                    action="{{ route('jogo.deletar', ['jogo' => $jogo->id]) }}" method="POST">
+                                <a href="{{ route('jogo.detalhar', ['jogo' => $jogo->id]) }}" class="btn btn-info btn-sm me-1">
+                                    Visualizar
+                                </a>
+                                <a href="{{ route('jogo.editar', ['jogo' => $jogo->id]) }}" class="btn btn-warning btn-sm me-1">
+                                    Editar
+                                </a>
+                                {{-- Formulário para exclusão --}}
+                                {{-- <form id="formExcluir{{ $jogo->id }}" action="{{ route('jogo.deletar', ['jogo' => $jogo->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger btn-sm me-1" type="submit"
-                                        onclick="confirmarExclusao(event, {{ $jogo->id }})">Apagar</button>
+                                    <button class="btn btn-danger btn-sm me-1" type="submit" onclick="confirmarExclusao(event, {{ $jogo->id }})">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M2.5 5.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5V6h-11v-.5zm1.5 1V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6.5h-10z"/>
+                                            <path fill-rule="evenodd" d="M6 1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V2h-4V1zM3.5 3a.5.5 0 0 0-.5.5V4a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 0-.5-.5h-9z"/>
+                                        </svg>
+                                    </button>
                                 </form> --}}
                             </td>
+                            
+                            
                         </tr>
                     @empty
                         <tr>

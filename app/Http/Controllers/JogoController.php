@@ -14,24 +14,36 @@ class JogoController extends Controller
         return view('jogos.formListar', ['jogos' => $jogos]);
     }
 
-    function formDetalhar(){
-        return view('jogos.formDetalhar');
+    function formDetalhar(Jogo $jogo){
+        return view('jogos.formDetalhar', ['jogo' => $jogo]);
     }
     
     function formCadastrar(){
         return view('jogos.formCadastrar');
     }
 
-    function cadastrar(){
-        dd("cadastrar");
+    function cadastrar(Request $request){
+        $jogo = Jogo::create([
+            'nome' => $request->nome,
+            'nota' => $request->nota,
+            'descricao' => $request->descricao
+        ]);
+
+        return redirect()->route('jogo.listar')->with('success', 'Cadastro realizado com sucesso!');
     }
 
-    function formEditar(){
-        return view('jogos.formEditar');
+    function formEditar(Jogo $jogo){
+        return view('jogos.formEditar',['jogo' => $jogo]);
     }
 
-    function editar(){
-        dd("editar");
+    function editar(Request $request , Jogo $jogo){
+        $jogo->update([
+            'nome' => $request->nome,
+            'nota' => $request->nota,
+            'descricao' => $request->descricao
+        ]);
+
+        return redirect()->route('jogo.detalhar', ['jogo' => $jogo])->with('sucess', "jogo Alterado com sucesso");
     }
 
 }
