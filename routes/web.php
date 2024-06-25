@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\JogoController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ Route::get('/detalhar-jogo/{jogo}', [JogoController::class, 'formDetalhar'])->na
 Route::post('/execCadastro-jogo', [JogoController::class, 'cadastrar'])->name('jogo.execCadastro');
 Route::put('/execEditar-jogo/{jogo}', [JogoController::class, 'editar'])->name('jogo.execEditar');
 Route::delete('/execDelete-jogo', [JogoController::class, 'cadastrar'])->name('jogo.execDelete');
+
+Route::get('/jogo-catalogo', [ApiController::class, 'index'])->name('jogo.catalogo');

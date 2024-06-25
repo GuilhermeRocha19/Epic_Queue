@@ -13,6 +13,8 @@
         <div class="card-body">
             <form action="{{ route('jogo.execCadastro') }}" method="POST" class="row g-3">
                 @csrf
+
+
                 <div class="col-md-12">
                     <label for="nome" class="form-label label-warning">Nome</label>
                     <input type="text" name="nome" id="nome" value="{{ old('nome') }}"
@@ -35,4 +37,5 @@
                 </div>
             </form>
         </div>
+
     @endsection

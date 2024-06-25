@@ -43,7 +43,7 @@ class JogoController extends Controller
             'descricao' => $request->descricao
         ]);
 
-        return redirect()->route('jogo.detalhar', ['jogo' => $jogo])->with('sucess', "jogo Alterado com sucesso");
+        
     }
 
 }
